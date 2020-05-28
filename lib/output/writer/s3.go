@@ -3,7 +3,9 @@ package writer
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"fmt"
+	"net/http"
 	"time"
 
 	"github.com/Jeffail/benthos/v3/lib/bloblang/x/field"
@@ -30,6 +32,8 @@ type AmazonS3Config struct {
 	Timeout            string `json:"timeout" yaml:"timeout"`
 	KMSKeyID           string `json:"kms_key_id" yaml:"kms_key_id"`
 	MaxInFlight        int    `json:"max_in_flight" yaml:"max_in_flight"`
+	DisableSSL         bool   `json:"disable_ssl" yaml:"disable_ssl"`
+	InsecureSkipVerify bool   `json:"insecure_skip_verify" yaml:"insecure_skip_verify"`
 }
 
 // NewAmazonS3Config creates a new Config with default values.
@@ -45,6 +49,8 @@ func NewAmazonS3Config() AmazonS3Config {
 		Timeout:            "5s",
 		KMSKeyID:           "",
 		MaxInFlight:        1,
+		DisableSSL:         false,
+		InsecureSkipVerify: false,
 	}
 }
 
@@ -115,8 +121,16 @@ func (a *AmazonS3) Connect() error {
 		return nil
 	}
 
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr}
+
 	sess, err := a.conf.GetSession(func(c *aws.Config) {
 		c.S3ForcePathStyle = aws.Bool(a.conf.ForcePathStyleURLs)
+		c.DisableSSL = aws.Bool(a.conf.DisableSSL)
+		c.HTTPClient = client
+
 	})
 	if err != nil {
 		return err
