@@ -8,14 +8,14 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 	"github.com/windhooked/benthos/v3/lib/bloblang/x/field"
 	"github.com/windhooked/benthos/v3/lib/log"
 	"github.com/windhooked/benthos/v3/lib/metrics"
 	"github.com/windhooked/benthos/v3/lib/types"
 	sess "github.com/windhooked/benthos/v3/lib/util/aws/session"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 )
 
 //------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ func (a *AmazonS3) Connect() error {
 	}
 
 	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: c.InsecureSkipVerify},
 	}
 	client := &http.Client{Transport: tr}
 
