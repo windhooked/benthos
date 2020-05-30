@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
 )
 
 func TestSTDINClose(t *testing.T) {

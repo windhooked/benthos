@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/types"
-	"github.com/Jeffail/benthos/v3/lib/util/http/client"
+	"github.com/windhooked/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/util/http/client"
 )
 
 //------------------------------------------------------------------------------

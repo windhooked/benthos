@@ -8,10 +8,10 @@ import (
 
 	"net/http"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/types"
-	"github.com/Jeffail/benthos/v3/lib/x/docs"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/x/docs"
 	"github.com/linkedin/goavro/v2"
 	"github.com/opentracing/opentracing-go"
 )

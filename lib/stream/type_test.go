@@ -5,12 +5,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/input"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/output"
-	"github.com/Jeffail/benthos/v3/lib/processor"
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/input"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/output"
+	"github.com/windhooked/benthos/v3/lib/processor"
+	"github.com/windhooked/benthos/v3/lib/types"
 )
 
 func TestTypeConstruction(t *testing.T) {

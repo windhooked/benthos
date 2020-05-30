@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
 	"github.com/gorilla/mux"
 	yaml "gopkg.in/yaml.v3"
 )

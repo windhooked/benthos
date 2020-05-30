@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/Jeffail/benthos/v3/lib/message"
-	"github.com/Jeffail/benthos/v3/lib/processor"
+	"github.com/windhooked/benthos/v3/lib/message"
+	"github.com/windhooked/benthos/v3/lib/processor"
 )
 
 func initTestFiles(files map[string]string) (string, error) {

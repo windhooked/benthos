@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/message"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/message"
+	"github.com/windhooked/benthos/v3/lib/metrics"
 )
 
 func TestSubprocessWithSed(t *testing.T) {

@@ -8,8 +8,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Jeffail/benthos/v3/lib/config"
-	"github.com/Jeffail/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/config"
+	"github.com/windhooked/benthos/v3/lib/log"
 	"github.com/fatih/color"
 	yaml "gopkg.in/yaml.v3"
 )

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/log"
 	"github.com/quipo/statsd"
 )
 
@@ -80,7 +80,7 @@ func NewStatsdLegacy(config Config, opts ...func(Type)) (Type, error) {
 			"Network set to 'tcp', falling back to legacy statsd client. The " +
 				"network field is due to be removed in the next major release, " +
 				" if you are relying on this field please raise an issue at: " +
-				"https://github.com/Jeffail/benthos/issues\n",
+				"https://github.com/windhooked/benthos/issues\n",
 		)
 	} else {
 		s.log.Warnf(
@@ -88,7 +88,7 @@ func NewStatsdLegacy(config Config, opts ...func(Type)) (Type, error) {
 				"the 'tag_format' field to 'none', 'datadog' or 'influxdb'. The " +
 				"network field is due to be removed in the next major release, " +
 				"if you are relying on this field please raise an issue at: " +
-				"https://github.com/Jeffail/benthos/issues\n",
+				"https://github.com/windhooked/benthos/issues\n",
 		)
 	}
 

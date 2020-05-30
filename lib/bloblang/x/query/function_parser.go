@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/Jeffail/benthos/v3/lib/bloblang/x/parser"
+	"github.com/windhooked/benthos/v3/lib/bloblang/x/parser"
 )
 
 //------------------------------------------------------------------------------

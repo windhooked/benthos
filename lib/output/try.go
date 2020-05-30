@@ -3,10 +3,10 @@ package output
 import (
 	"fmt"
 
-	"github.com/Jeffail/benthos/v3/lib/broker"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/broker"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/types"
 )
 
 //------------------------------------------------------------------------------

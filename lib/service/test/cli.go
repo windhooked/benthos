@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/log"
 	"github.com/urfave/cli/v2"
 )
 

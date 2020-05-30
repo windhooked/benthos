@@ -1,7 +1,7 @@
 package manager
 
 import (
-	"github.com/Jeffail/benthos/v3/lib/stream"
+	"github.com/windhooked/benthos/v3/lib/stream"
 	yaml "gopkg.in/yaml.v3"
 )
 

@@ -4,14 +4,14 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/Jeffail/benthos/v3/lib/input/reader"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/pipeline"
-	"github.com/Jeffail/benthos/v3/lib/processor"
-	"github.com/Jeffail/benthos/v3/lib/types"
-	"github.com/Jeffail/benthos/v3/lib/util/config"
-	"github.com/Jeffail/benthos/v3/lib/x/docs"
+	"github.com/windhooked/benthos/v3/lib/input/reader"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/pipeline"
+	"github.com/windhooked/benthos/v3/lib/processor"
+	"github.com/windhooked/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/util/config"
+	"github.com/windhooked/benthos/v3/lib/x/docs"
 	yaml "gopkg.in/yaml.v3"
 )
 

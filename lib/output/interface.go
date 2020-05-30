@@ -1,6 +1,6 @@
 package output
 
-import "github.com/Jeffail/benthos/v3/lib/types"
+import "github.com/windhooked/benthos/v3/lib/types"
 
 // Type is the standard interface of an output type.
 type Type interface {

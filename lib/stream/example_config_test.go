@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/types"
 	yaml "gopkg.in/yaml.v3"
 )
 

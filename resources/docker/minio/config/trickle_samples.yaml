@@ -1,0 +1,37 @@
+input:
+  type: read_until
+  read_until:
+    condition:
+      type: static
+      static: false
+    input:
+      type: file
+      file:
+        path: ./sample_data.txt
+    restart_input: true
+pipeline:
+  processors:
+    - type: throttle
+      throttle:
+        period: 3s
+output:
+  type: s3
+  s3:
+    bucket: "customer"
+    content_encoding: ""
+    content_type: application/octet-stream
+    credentials:
+      id: "minio_access_key"
+      profile: ""
+      role: ""
+      role_external_id: ""
+      secret: "inio_secret_key"
+      token: ""
+    endpoint: "localhost:9000"
+    force_path_style_urls: false
+    kms_key_id: ""
+    max_in_flight: 1
+    path: ${!count("files")}-${!timestamp_unix_nano()}.txt
+    region: eu-west-1
+    storage_class: STANDARD
+    timeout: 5s

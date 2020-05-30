@@ -1,6 +1,6 @@
 package metrics
 
-import "github.com/Jeffail/benthos/v3/lib/log"
+import "github.com/windhooked/benthos/v3/lib/log"
 
 //------------------------------------------------------------------------------
 

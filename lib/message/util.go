@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/Jeffail/benthos/v3/lib/message/metadata"
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/message/metadata"
+	"github.com/windhooked/benthos/v3/lib/types"
 )
 
 //------------------------------------------------------------------------------

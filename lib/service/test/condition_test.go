@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/Jeffail/benthos/v3/lib/message"
+	"github.com/windhooked/benthos/v3/lib/message"
 	"github.com/fatih/color"
 	yaml "gopkg.in/yaml.v3"
 )

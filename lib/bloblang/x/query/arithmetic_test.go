@@ -3,7 +3,7 @@ package query
 import (
 	"testing"
 
-	"github.com/Jeffail/benthos/v3/lib/message"
+	"github.com/windhooked/benthos/v3/lib/message"
 	"github.com/stretchr/testify/assert"
 )
 

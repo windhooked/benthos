@@ -7,16 +7,16 @@ import (
 	"os"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/config"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/manager"
-	"github.com/Jeffail/benthos/v3/lib/message"
-	"github.com/Jeffail/benthos/v3/lib/message/roundtrip"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/output"
-	"github.com/Jeffail/benthos/v3/lib/pipeline"
-	"github.com/Jeffail/benthos/v3/lib/tracer"
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/config"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/manager"
+	"github.com/windhooked/benthos/v3/lib/message"
+	"github.com/windhooked/benthos/v3/lib/message/roundtrip"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/output"
+	"github.com/windhooked/benthos/v3/lib/pipeline"
+	"github.com/windhooked/benthos/v3/lib/tracer"
+	"github.com/windhooked/benthos/v3/lib/types"
 )
 
 //------------------------------------------------------------------------------

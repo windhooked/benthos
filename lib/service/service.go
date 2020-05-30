@@ -10,15 +10,15 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/api"
-	"github.com/Jeffail/benthos/v3/lib/config"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/manager"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/stream"
-	strmmgr "github.com/Jeffail/benthos/v3/lib/stream/manager"
-	"github.com/Jeffail/benthos/v3/lib/tracer"
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/api"
+	"github.com/windhooked/benthos/v3/lib/config"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/manager"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/stream"
+	strmmgr "github.com/windhooked/benthos/v3/lib/stream/manager"
+	"github.com/windhooked/benthos/v3/lib/tracer"
+	"github.com/windhooked/benthos/v3/lib/types"
 )
 
 //------------------------------------------------------------------------------

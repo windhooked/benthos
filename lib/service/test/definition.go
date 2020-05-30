@@ -3,7 +3,7 @@ package test
 import (
 	"fmt"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/log"
 	"golang.org/x/sync/errgroup"
 )
 

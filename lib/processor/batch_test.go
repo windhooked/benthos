@@ -5,10 +5,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/Jeffail/benthos/v3/lib/condition"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/message"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/condition"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/message"
+	"github.com/windhooked/benthos/v3/lib/metrics"
 )
 
 func TestBatchBasic(t *testing.T) {

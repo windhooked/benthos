@@ -1,6 +1,6 @@
 package main
 
-import "github.com/Jeffail/benthos/v3/lib/serverless/lambda"
+import "github.com/windhooked/benthos/v3/lib/serverless/lambda"
 
 //------------------------------------------------------------------------------
 

@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/log"
 )
 
 func TestBlacklistPaths(t *testing.T) {

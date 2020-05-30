@@ -8,9 +8,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/util/config"
-	"github.com/Jeffail/benthos/v3/lib/x/docs"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/util/config"
+	"github.com/windhooked/benthos/v3/lib/x/docs"
 )
 
 //------------------------------------------------------------------------------

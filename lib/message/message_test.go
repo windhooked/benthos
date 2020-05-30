@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/Jeffail/benthos/v3/lib/message/metadata"
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/message/metadata"
+	"github.com/windhooked/benthos/v3/lib/types"
 )
 
 func TestMessageSerialization(t *testing.T) {

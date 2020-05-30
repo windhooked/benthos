@@ -3,11 +3,11 @@
 package input
 
 import (
-	"github.com/Jeffail/benthos/v3/lib/input/reader"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/types"
-	"github.com/Jeffail/benthos/v3/lib/x/docs"
+	"github.com/windhooked/benthos/v3/lib/input/reader"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/x/docs"
 )
 
 //------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ You can also build it into your project by getting libzmq installed on your
 machine, then build with the tag:
 
 ` + "```sh" + `
-go install -tags "ZMQ4" github.com/Jeffail/benthos/v3/cmd/benthos
+go install -tags "ZMQ4" github.com/windhooked/benthos/v3/cmd/benthos
 ` + "```" + `
 
 ZMQ4 input supports PULL and SUB sockets only. If there is demand for other

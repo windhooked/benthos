@@ -6,13 +6,13 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Jeffail/benthos/v3/lib/config"
-	"github.com/Jeffail/benthos/v3/lib/input"
-	"github.com/Jeffail/benthos/v3/lib/output"
-	"github.com/Jeffail/benthos/v3/lib/processor"
-	"github.com/Jeffail/benthos/v3/lib/service/blobl"
-	"github.com/Jeffail/benthos/v3/lib/service/test"
-	uconfig "github.com/Jeffail/benthos/v3/lib/util/config"
+	"github.com/windhooked/benthos/v3/lib/config"
+	"github.com/windhooked/benthos/v3/lib/input"
+	"github.com/windhooked/benthos/v3/lib/output"
+	"github.com/windhooked/benthos/v3/lib/processor"
+	"github.com/windhooked/benthos/v3/lib/service/blobl"
+	"github.com/windhooked/benthos/v3/lib/service/test"
+	uconfig "github.com/windhooked/benthos/v3/lib/util/config"
 	"github.com/urfave/cli/v2"
 )
 
@@ -29,8 +29,8 @@ var (
 // OptSetVersionStamp creates an opt func for setting the version and date built
 // stamps that Benthos returns via --version and the /version endpoint. The
 // traditional way of setting these values is via the build flags:
-// -X github.com/Jeffail/benthos/v3/lib/service.Version=$(VERSION) and
-// -X github.com/Jeffail/benthos/v3/lib/service.DateBuilt=$(DATE)
+// -X github.com/windhooked/benthos/v3/lib/service.Version=$(VERSION) and
+// -X github.com/windhooked/benthos/v3/lib/service.DateBuilt=$(DATE)
 func OptSetVersionStamp(version, dateBuilt string) func() {
 	return func() {
 		Version = version

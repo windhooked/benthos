@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/bloblang/x/field"
-	"github.com/Jeffail/benthos/v3/lib/log"
-	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/types"
-	"github.com/Jeffail/benthos/v3/lib/x/docs"
+	"github.com/windhooked/benthos/v3/lib/bloblang/x/field"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/x/docs"
 )
 
 //------------------------------------------------------------------------------

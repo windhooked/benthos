@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Jeffail/benthos/v3/lib/broker"
+	"github.com/windhooked/benthos/v3/lib/broker"
 
 	"gopkg.in/yaml.v3"
 )

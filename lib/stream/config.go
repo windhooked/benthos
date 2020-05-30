@@ -1,10 +1,10 @@
 package stream
 
 import (
-	"github.com/Jeffail/benthos/v3/lib/buffer"
-	"github.com/Jeffail/benthos/v3/lib/input"
-	"github.com/Jeffail/benthos/v3/lib/output"
-	"github.com/Jeffail/benthos/v3/lib/pipeline"
+	"github.com/windhooked/benthos/v3/lib/buffer"
+	"github.com/windhooked/benthos/v3/lib/input"
+	"github.com/windhooked/benthos/v3/lib/output"
+	"github.com/windhooked/benthos/v3/lib/pipeline"
 )
 
 //------------------------------------------------------------------------------

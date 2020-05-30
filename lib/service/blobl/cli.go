@@ -7,8 +7,8 @@ import (
 	"os"
 	"sync"
 
-	"github.com/Jeffail/benthos/v3/lib/bloblang/x/mapping"
-	"github.com/Jeffail/benthos/v3/lib/bloblang/x/query"
+	"github.com/windhooked/benthos/v3/lib/bloblang/x/mapping"
+	"github.com/windhooked/benthos/v3/lib/bloblang/x/query"
 	"github.com/Jeffail/gabs/v2"
 	"github.com/fatih/color"
 	"github.com/urfave/cli/v2"

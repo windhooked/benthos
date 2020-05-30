@@ -1,0 +1,38 @@
+version: '3.3'
+
+services:
+ trickle:
+    image: golang:1.13
+    restart: always
+    depends_on:
+      - minio
+   # ports:
+   #   - 8080:8080
+    volumes:
+      - .:/app
+    #  - /data/src/go/pkg/mod:/go/pkg/mod #$GOPATH
+    #  - /data/src/go/pkg/mod:/usr/local/go/src/ 
+    working_dir: /app
+    command: go run trickler.go --config /app/pusher/config.yml
+
+ minio:
+    image: minio/minio:latest
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - minio_storage:/data
+      - ./minio:/root/.minio
+    environment:
+      MINIO_ACCESS_KEY: minio_access_key
+      MINIO_SECRET_KEY: minio_secret_key
+      MINIO_REGION_NAME: eu-west-1
+    command: ["server", "/data"]
+    healthcheck:
+      test: ["CMD", "curl", "-insecure", "-f", "https://s3:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3    
+
+volumes:
+  minio_storage: {}    

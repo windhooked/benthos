@@ -3,7 +3,7 @@ package reader
 import (
 	"time"
 
-	"github.com/Jeffail/benthos/v3/lib/types"
+	"github.com/windhooked/benthos/v3/lib/types"
 )
 
 //------------------------------------------------------------------------------
