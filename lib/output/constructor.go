@@ -6,12 +6,13 @@ import (
 
 	"github.com/Jeffail/benthos/v3/lib/log"
 	"github.com/Jeffail/benthos/v3/lib/metrics"
-	"github.com/Jeffail/benthos/v3/lib/output/writer"
 	"github.com/Jeffail/benthos/v3/lib/pipeline"
 	"github.com/Jeffail/benthos/v3/lib/processor"
 	"github.com/Jeffail/benthos/v3/lib/types"
 	"github.com/Jeffail/benthos/v3/lib/util/config"
 	"github.com/Jeffail/benthos/v3/lib/x/docs"
+	"github.com/Jeffail/v3/lib/output/writer"
+	mywriter "github.com/windhooked/v3/lib/output/writer"
 	yaml "gopkg.in/yaml.v3"
 )
 
@@ -133,7 +134,7 @@ type Config struct {
 	RedisStreams    writer.RedisStreamsConfig    `json:"redis_streams" yaml:"redis_streams"`
 	Resource        string                       `json:"resource" yaml:"resource"`
 	Retry           RetryConfig                  `json:"retry" yaml:"retry"`
-	S3              writer.AmazonS3Config        `json:"s3" yaml:"s3"`
+	S3              mywriter.AmazonS3Config      `json:"s3" yaml:"s3"` //use modified s3 writer
 	SNS             writer.SNSConfig             `json:"sns" yaml:"sns"`
 	SQS             writer.AmazonSQSConfig       `json:"sqs" yaml:"sqs"`
 	STDOUT          STDOUTConfig                 `json:"stdout" yaml:"stdout"`
@@ -183,7 +184,7 @@ func NewConfig() Config {
 		RedisStreams:    writer.NewRedisStreamsConfig(),
 		Resource:        "",
 		Retry:           NewRetryConfig(),
-		S3:              writer.NewAmazonS3Config(),
+		S3:              mywriter.NewAmazonS3Config(), //use modified s3 writer
 		SNS:             writer.NewSNSConfig(),
 		SQS:             writer.NewAmazonSQSConfig(),
 		STDOUT:          NewSTDOUTConfig(),
