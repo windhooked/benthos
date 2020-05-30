@@ -122,7 +122,7 @@ func (a *AmazonS3) Connect() error {
 	}
 
 	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: c.InsecureSkipVerify},
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: a.conf.InsecureSkipVerify},
 	}
 	client := &http.Client{Transport: tr}
 
