@@ -3,20 +3,22 @@ package cache
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 	"time"
 
-	"github.com/windhooked/benthos/v3/lib/log"
-	"github.com/windhooked/benthos/v3/lib/metrics"
-	"github.com/windhooked/benthos/v3/lib/types"
-	sess "github.com/windhooked/benthos/v3/lib/util/aws/session"
-	"github.com/windhooked/benthos/v3/lib/x/docs"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/types"
+	sess "github.com/windhooked/benthos/v3/lib/util/aws/session"
+	"github.com/windhooked/benthos/v3/lib/x/docs"
 )
 
 //------------------------------------------------------------------------------
@@ -57,6 +59,8 @@ type S3Config struct {
 	ContentType        string `json:"content_type" yaml:"content_type"`
 	Timeout            string `json:"timeout" yaml:"timeout"`
 	Retries            int    `json:"retries" yaml:"retries"`
+	DisableSSL         bool   `json:"disable_ssl" yaml:"disable_ssl"`
+	InsecureSkipVerify bool   `json:"insecure_skip_verify" yaml:"insecure_skip_verify"`
 }
 
 // NewS3Config creates a S3Config populated with default values.
@@ -68,6 +72,8 @@ func NewS3Config() S3Config {
 		ContentType:        "application/octet-stream",
 		Timeout:            "5s",
 		Retries:            3,
+		DisableSSL:         false,
+		InsecureSkipVerify: false,
 	}
 }
 
@@ -122,8 +128,15 @@ func NewS3(conf Config, mgr types.Manager, log log.Modular, stats metrics.Type) 
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse timeout: %v", err)
 	}
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: conf.S3.InsecureSkipVerify},
+	}
+	client := &http.Client{Transport: tr}
+
 	sess, err := conf.S3.GetSession(func(c *aws.Config) {
 		c.S3ForcePathStyle = aws.Bool(conf.S3.ForcePathStyleURLs)
+		c.DisableSSL = aws.Bool(conf.S3.DisableSSL)
+		c.HTTPClient = client
 	})
 	if err != nil {
 		return nil, err

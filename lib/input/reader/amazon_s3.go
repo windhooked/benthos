@@ -2,27 +2,29 @@ package reader
 
 import (
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
 
-	"github.com/windhooked/benthos/v3/lib/log"
-	"github.com/windhooked/benthos/v3/lib/message"
-	"github.com/windhooked/benthos/v3/lib/metrics"
-	"github.com/windhooked/benthos/v3/lib/types"
-	sess "github.com/windhooked/benthos/v3/lib/util/aws/session"
 	"github.com/Jeffail/gabs/v2"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 	"github.com/aws/aws-sdk-go/service/sqs"
+	"github.com/windhooked/benthos/v3/lib/log"
+	"github.com/windhooked/benthos/v3/lib/message"
+	"github.com/windhooked/benthos/v3/lib/metrics"
+	"github.com/windhooked/benthos/v3/lib/types"
+	sess "github.com/windhooked/benthos/v3/lib/util/aws/session"
 )
 
 //------------------------------------------------------------------------------
@@ -50,6 +52,8 @@ type AmazonS3Config struct {
 	SQSMaxMessages     int64                   `json:"sqs_max_messages" yaml:"sqs_max_messages"`
 	MaxBatchCount      int                     `json:"max_batch_count" yaml:"max_batch_count"`
 	Timeout            string                  `json:"timeout" yaml:"timeout"`
+	DisableSSL         bool                    `json:"disable_ssl" yaml:"disable_ssl"`
+	InsecureSkipVerify bool                    `json:"insecure_skip_verify" yaml:"insecure_skip_verify"`
 }
 
 // NewAmazonS3Config creates a new AmazonS3Config with default values.
@@ -63,15 +67,17 @@ func NewAmazonS3Config() AmazonS3Config {
 		DownloadManager: S3DownloadManagerConfig{
 			Enabled: true,
 		},
-		DeleteObjects:   false,
-		SQSURL:          "",
-		SQSEndpoint:     "",
-		SQSBodyPath:     "Records.*.s3.object.key",
-		SQSBucketPath:   "",
-		SQSEnvelopePath: "",
-		SQSMaxMessages:  10,
-		MaxBatchCount:   1,
-		Timeout:         "5s",
+		DeleteObjects:      false,
+		SQSURL:             "",
+		SQSEndpoint:        "",
+		SQSBodyPath:        "Records.*.s3.object.key",
+		SQSBucketPath:      "",
+		SQSEnvelopePath:    "",
+		SQSMaxMessages:     10,
+		MaxBatchCount:      1,
+		Timeout:            "5s",
+		DisableSSL:         false,
+		InsecureSkipVerify: false,
 	}
 }
 
@@ -166,8 +172,15 @@ func (a *AmazonS3) ConnectWithContext(ctx context.Context) error {
 		return nil
 	}
 
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: a.conf.InsecureSkipVerify},
+	}
+	client := &http.Client{Transport: tr}
+
 	sess, err := a.conf.GetSession(func(c *aws.Config) {
 		c.S3ForcePathStyle = aws.Bool(a.conf.ForcePathStyleURLs)
+		c.DisableSSL = aws.Bool(a.conf.DisableSSL)
+		c.HTTPClient = client
 	})
 	if err != nil {
 		return err
